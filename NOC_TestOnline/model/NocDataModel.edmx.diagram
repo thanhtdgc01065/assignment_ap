@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b1eb7f66d569433eb343c5594b18c26c" Name="Diagram1">
+        <EntityTypeShape EntityType="CS_AssignmentModel.BaiThi" Width="1.5" PointX="9.75" PointY="3.5" />
+        <EntityTypeShape EntityType="CS_AssignmentModel.CauHoi" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="CS_AssignmentModel.DeThi" Width="1.5" PointX="7.5" PointY="1.25" />
+        <EntityTypeShape EntityType="CS_AssignmentModel.DonVi" Width="1.5" PointX="0.75" PointY="3.625" />
+        <EntityTypeShape EntityType="CS_AssignmentModel.KetQua" Width="1.5" PointX="12" PointY="3.75" />
+        <EntityTypeShape EntityType="CS_AssignmentModel.NghiepVu" Width="1.5" PointX="3" PointY="1.625" />
+        <EntityTypeShape EntityType="CS_AssignmentModel.TaiKhoan" Width="1.5" PointX="3" PointY="5.25" />
+        <EntityTypeShape EntityType="CS_AssignmentModel.vwFullAccountDetail" Width="1.5" PointX="0.5" PointY="8.625" />
+        <EntityTypeShape EntityType="CS_AssignmentModel.vwFullExam" Width="1.5" PointX="4.5" PointY="8.625" />
+        <EntityTypeShape EntityType="CS_AssignmentModel.vwFullQuestionDetail" Width="1.5" PointX="2.5" PointY="8.625" />
+        <EntityTypeShape EntityType="CS_AssignmentModel.vwResult" Width="1.5" PointX="6.5" PointY="8.625" />
+        <AssociationConnector Association="CS_AssignmentModel.FK_BaiThi_KetQua" />
+        <AssociationConnector Association="CS_AssignmentModel.FK_DeThi_BaiThi" />
+        <AssociationConnector Association="CS_AssignmentModel.FK_TaiKhoan_BaiThi" />
+        <AssociationConnector Association="CS_AssignmentModel.FK_CauHoi_DeThi1" />
+        <AssociationConnector Association="CS_AssignmentModel.FK_CauHoi_DeThi2" />
+        <AssociationConnector Association="CS_AssignmentModel.FK_CauHoi_DeThi3" />
+        <AssociationConnector Association="CS_AssignmentModel.FK_NghiepVu_CauHoi" />
+        <AssociationConnector Association="CS_AssignmentModel.FK_NghiepVu_DeThi" />
+        <AssociationConnector Association="CS_AssignmentModel.FK_DonVi_NghiepVu" />
+        <AssociationConnector Association="CS_AssignmentModel.FK_DonVi_TaiKhoan" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

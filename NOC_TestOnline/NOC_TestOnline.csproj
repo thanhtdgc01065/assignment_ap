@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B9E1ED91-2DEA-4FC5-8506-B6965129FF9D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NOC_TestOnline</RootNamespace>
+    <AssemblyName>NOC_TestOnline</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>NOC_TestOnline.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="controller\EncryptData.cs" />
+    <Compile Include="controller\RandomPosition.cs" />
+    <Compile Include="model\BaiThi.cs">
+      <DependentUpon>NocDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="model\CauHoi.cs">
+      <DependentUpon>NocDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="model\DeThi.cs">
+      <DependentUpon>NocDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="model\DonVi.cs">
+      <DependentUpon>NocDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="model\KetQua.cs">
+      <DependentUpon>NocDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="model\NghiepVu.cs">
+      <DependentUpon>NocDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="model\NocDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NocDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="model\NocDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NocDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="model\NocDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NocDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="model\TaiKhoan.cs">
+      <DependentUpon>NocDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="model\vwFullAccountDetail.cs">
+      <DependentUpon>NocDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="model\vwFullExam.cs">
+      <DependentUpon>NocDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="model\vwFullQuestionDetail.cs">
+      <DependentUpon>NocDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="model\vwResult.cs">
+      <DependentUpon>NocDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormAccountManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormAccountManager.Designer.cs">
+      <DependentUpon>FormAccountManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="view\FormBeginTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormBeginTest.Designer.cs">
+      <DependentUpon>FormBeginTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormExamManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormExamManager.Designer.cs">
+      <DependentUpon>FormExamManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormPutExamId.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormPutExamId.Designer.cs">
+      <DependentUpon>FormPutExamId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormQuestionManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormQuestionManager.Designer.cs">
+      <DependentUpon>FormQuestionManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormResult.Designer.cs">
+      <DependentUpon>FormResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormSkillManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormSkillManager.Designer.cs">
+      <DependentUpon>FormSkillManager.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="view\FormAccountManager.resx">
+      <DependentUpon>FormAccountManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="view\FormBeginTest.resx">
+      <DependentUpon>FormBeginTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormExamManager.resx">
+      <DependentUpon>FormExamManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormPutExamId.resx">
+      <DependentUpon>FormPutExamId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormQuestionManager.resx">
+      <DependentUpon>FormQuestionManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormResult.resx">
+      <DependentUpon>FormResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormSkillManager.resx">
+      <DependentUpon>FormSkillManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="model\NocDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NocDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="model\NocDataModel.edmx.diagram">
+      <DependentUpon>NocDataModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\image.jpg" />
+    <Content Include="model\NocDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NocDataModel.edmx</DependentUpon>
+      <LastGenOutput>NocDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="model\NocDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NocDataModel.edmx</DependentUpon>
+      <LastGenOutput>NocDataModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

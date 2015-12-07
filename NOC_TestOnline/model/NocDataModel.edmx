@@ -1,0 +1,842 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CS_AssignmentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BaiThi">
+          <Key>
+            <PropertyRef Name="MaBaiThi" />
+          </Key>
+          <Property Name="MaBaiThi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaDeThi" Type="varchar" MaxLength="100" />
+          <Property Name="TenTaiKhoan" Type="varchar" MaxLength="100" />
+          <Property Name="NgayThi" Type="date" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="CauHoi">
+          <Key>
+            <PropertyRef Name="MaCauHoi" />
+          </Key>
+          <Property Name="MaCauHoi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaNghiepVu" Type="varchar" MaxLength="100" />
+          <Property Name="CauHoi" Type="nvarchar(max)" />
+          <Property Name="TraLoi1" Type="nvarchar(max)" />
+          <Property Name="TraLoi2" Type="nvarchar(max)" />
+          <Property Name="TraLoi3" Type="nvarchar(max)" />
+          <Property Name="DapAn" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="DeThi">
+          <Key>
+            <PropertyRef Name="MaDeThi" />
+          </Key>
+          <Property Name="MaDeThi" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MaNghiepVu" Type="varchar" MaxLength="100" />
+          <Property Name="MaCauHoi1" Type="int" />
+          <Property Name="MaCauHoi2" Type="int" />
+          <Property Name="MaCauHoi3" Type="int" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="DonVi">
+          <Key>
+            <PropertyRef Name="MaDonVi" />
+          </Key>
+          <Property Name="MaDonVi" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TenPhong" Type="varchar" MaxLength="200" />
+          <Property Name="TenDoi" Type="varchar" MaxLength="200" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="KetQua">
+          <Key>
+            <PropertyRef Name="MaKetQua" />
+          </Key>
+          <Property Name="MaKetQua" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaBaiThi" Type="int" />
+          <Property Name="DiemSo" Type="int" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="NghiepVu">
+          <Key>
+            <PropertyRef Name="MaNghiepVu" />
+          </Key>
+          <Property Name="MaNghiepVu" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MaDonVi" Type="varchar" MaxLength="100" />
+          <Property Name="TenNghiepVu" Type="varchar" MaxLength="100" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="TenTaiKhoan" />
+          </Key>
+          <Property Name="TenTaiKhoan" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MatKhau" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="300" />
+          <Property Name="MaDonVi" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="300" />
+          <Property Name="Mobile" Type="varchar" MaxLength="15" />
+          <Property Name="DiaChi" Type="nvarchar(max)" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CS_Assignment.dbo.vwFullAccountDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwFullAccountDetails">
+          <Key>
+            <PropertyRef Name="TenTaiKhoan" />
+          </Key>
+          <Property Name="TenTaiKhoan" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="300" />
+          <Property Name="TenPhong" Type="varchar" MaxLength="200" />
+          <Property Name="TenDoi" Type="varchar" MaxLength="200" />
+          <Property Name="Email" Type="varchar" MaxLength="300" />
+          <Property Name="Mobile" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CS_Assignment.dbo.vwFullExam' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwFullExam">
+          <Key>
+            <PropertyRef Name="MaDeThi" />
+          </Key>
+          <Property Name="MaDeThi" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MaNghiepVu" Type="varchar" MaxLength="100" />
+          <Property Name="TenNghiepVu" Type="varchar" MaxLength="100" />
+          <Property Name="MaDonVi" Type="varchar" MaxLength="100" />
+          <Property Name="MaCauHoi1" Type="int" />
+          <Property Name="MaCauHoi2" Type="int" />
+          <Property Name="MaCauHoi3" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CS_Assignment.dbo.vwFullQuestionDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwFullQuestionDetails">
+          <Key>
+            <PropertyRef Name="MaCauHoi" />
+            <PropertyRef Name="DapAn" />
+          </Key>
+          <Property Name="MaCauHoi" Type="int" Nullable="false" />
+          <Property Name="MaNghiepVu" Type="varchar" MaxLength="100" />
+          <Property Name="TenPhong" Type="varchar" MaxLength="200" />
+          <Property Name="TenDoi" Type="varchar" MaxLength="200" />
+          <Property Name="TenNghiepVu" Type="varchar" MaxLength="100" />
+          <Property Name="CauHoi" Type="nvarchar(max)" />
+          <Property Name="TraLoi1" Type="nvarchar(max)" />
+          <Property Name="TraLoi2" Type="nvarchar(max)" />
+          <Property Name="TraLoi3" Type="nvarchar(max)" />
+          <Property Name="DapAn" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CS_Assignment.dbo.vwResult' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwResult">
+          <Key>
+            <PropertyRef Name="TenTaiKhoan" />
+          </Key>
+          <Property Name="TenTaiKhoan" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="300" />
+          <Property Name="TenPhong" Type="varchar" MaxLength="200" />
+          <Property Name="TenDoi" Type="varchar" MaxLength="200" />
+          <Property Name="TenNghiepVu" Type="varchar" MaxLength="100" />
+          <Property Name="NgayThi" Type="date" />
+          <Property Name="DiemSo" Type="int" />
+        </EntityType>
+        <Association Name="FK_BaiThi_KetQua">
+          <End Role="BaiThi" Type="Self.BaiThi" Multiplicity="0..1" />
+          <End Role="KetQua" Type="Self.KetQua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BaiThi">
+              <PropertyRef Name="MaBaiThi" />
+            </Principal>
+            <Dependent Role="KetQua">
+              <PropertyRef Name="MaBaiThi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CauHoi_DeThi1">
+          <End Role="CauHoi" Type="Self.CauHoi" Multiplicity="0..1" />
+          <End Role="DeThi" Type="Self.DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CauHoi">
+              <PropertyRef Name="MaCauHoi" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaCauHoi1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CauHoi_DeThi2">
+          <End Role="CauHoi" Type="Self.CauHoi" Multiplicity="0..1" />
+          <End Role="DeThi" Type="Self.DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CauHoi">
+              <PropertyRef Name="MaCauHoi" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaCauHoi2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CauHoi_DeThi3">
+          <End Role="CauHoi" Type="Self.CauHoi" Multiplicity="0..1" />
+          <End Role="DeThi" Type="Self.DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CauHoi">
+              <PropertyRef Name="MaCauHoi" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaCauHoi3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeThi_BaiThi">
+          <End Role="DeThi" Type="Self.DeThi" Multiplicity="0..1" />
+          <End Role="BaiThi" Type="Self.BaiThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeThi">
+              <PropertyRef Name="MaDeThi" />
+            </Principal>
+            <Dependent Role="BaiThi">
+              <PropertyRef Name="MaDeThi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DonVi_NghiepVu">
+          <End Role="DonVi" Type="Self.DonVi" Multiplicity="0..1" />
+          <End Role="NghiepVu" Type="Self.NghiepVu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DonVi">
+              <PropertyRef Name="MaDonVi" />
+            </Principal>
+            <Dependent Role="NghiepVu">
+              <PropertyRef Name="MaDonVi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DonVi_TaiKhoan">
+          <End Role="DonVi" Type="Self.DonVi" Multiplicity="1" />
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DonVi">
+              <PropertyRef Name="MaDonVi" />
+            </Principal>
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="MaDonVi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NghiepVu_CauHoi">
+          <End Role="NghiepVu" Type="Self.NghiepVu" Multiplicity="0..1" />
+          <End Role="CauHoi" Type="Self.CauHoi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NghiepVu">
+              <PropertyRef Name="MaNghiepVu" />
+            </Principal>
+            <Dependent Role="CauHoi">
+              <PropertyRef Name="MaNghiepVu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NghiepVu_DeThi">
+          <End Role="NghiepVu" Type="Self.NghiepVu" Multiplicity="0..1" />
+          <End Role="DeThi" Type="Self.DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NghiepVu">
+              <PropertyRef Name="MaNghiepVu" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaNghiepVu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaiKhoan_BaiThi">
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+          <End Role="BaiThi" Type="Self.BaiThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="TenTaiKhoan" />
+            </Principal>
+            <Dependent Role="BaiThi">
+              <PropertyRef Name="TenTaiKhoan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CS_AssignmentModelStoreContainer">
+          <EntitySet Name="BaiThi" EntityType="Self.BaiThi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CauHoi" EntityType="Self.CauHoi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeThi" EntityType="Self.DeThi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DonVi" EntityType="Self.DonVi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KetQua" EntityType="Self.KetQua" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NghiepVu" EntityType="Self.NghiepVu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vwFullAccountDetails" EntityType="Self.vwFullAccountDetails" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwFullAccountDetails].[TenTaiKhoan] AS [TenTaiKhoan], 
+    [vwFullAccountDetails].[HoTen] AS [HoTen], 
+    [vwFullAccountDetails].[TenPhong] AS [TenPhong], 
+    [vwFullAccountDetails].[TenDoi] AS [TenDoi], 
+    [vwFullAccountDetails].[Email] AS [Email], 
+    [vwFullAccountDetails].[Mobile] AS [Mobile]
+    FROM [dbo].[vwFullAccountDetails] AS [vwFullAccountDetails]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFullExam" EntityType="Self.vwFullExam" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwFullExam].[MaDeThi] AS [MaDeThi], 
+    [vwFullExam].[MaNghiepVu] AS [MaNghiepVu], 
+    [vwFullExam].[TenNghiepVu] AS [TenNghiepVu], 
+    [vwFullExam].[MaDonVi] AS [MaDonVi], 
+    [vwFullExam].[MaCauHoi1] AS [MaCauHoi1], 
+    [vwFullExam].[MaCauHoi2] AS [MaCauHoi2], 
+    [vwFullExam].[MaCauHoi3] AS [MaCauHoi3]
+    FROM [dbo].[vwFullExam] AS [vwFullExam]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwFullQuestionDetails" EntityType="Self.vwFullQuestionDetails" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwFullQuestionDetails].[MaCauHoi] AS [MaCauHoi], 
+    [vwFullQuestionDetails].[MaNghiepVu] AS [MaNghiepVu], 
+    [vwFullQuestionDetails].[TenPhong] AS [TenPhong], 
+    [vwFullQuestionDetails].[TenDoi] AS [TenDoi], 
+    [vwFullQuestionDetails].[TenNghiepVu] AS [TenNghiepVu], 
+    [vwFullQuestionDetails].[CauHoi] AS [CauHoi], 
+    [vwFullQuestionDetails].[TraLoi1] AS [TraLoi1], 
+    [vwFullQuestionDetails].[TraLoi2] AS [TraLoi2], 
+    [vwFullQuestionDetails].[TraLoi3] AS [TraLoi3], 
+    [vwFullQuestionDetails].[DapAn] AS [DapAn]
+    FROM [dbo].[vwFullQuestionDetails] AS [vwFullQuestionDetails]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwResult" EntityType="Self.vwResult" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwResult].[TenTaiKhoan] AS [TenTaiKhoan], 
+    [vwResult].[HoTen] AS [HoTen], 
+    [vwResult].[TenPhong] AS [TenPhong], 
+    [vwResult].[TenDoi] AS [TenDoi], 
+    [vwResult].[TenNghiepVu] AS [TenNghiepVu], 
+    [vwResult].[NgayThi] AS [NgayThi], 
+    [vwResult].[DiemSo] AS [DiemSo]
+    FROM [dbo].[vwResult] AS [vwResult]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_BaiThi_KetQua" Association="Self.FK_BaiThi_KetQua">
+            <End Role="BaiThi" EntitySet="BaiThi" />
+            <End Role="KetQua" EntitySet="KetQua" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CauHoi_DeThi1" Association="Self.FK_CauHoi_DeThi1">
+            <End Role="CauHoi" EntitySet="CauHoi" />
+            <End Role="DeThi" EntitySet="DeThi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CauHoi_DeThi2" Association="Self.FK_CauHoi_DeThi2">
+            <End Role="CauHoi" EntitySet="CauHoi" />
+            <End Role="DeThi" EntitySet="DeThi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CauHoi_DeThi3" Association="Self.FK_CauHoi_DeThi3">
+            <End Role="CauHoi" EntitySet="CauHoi" />
+            <End Role="DeThi" EntitySet="DeThi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeThi_BaiThi" Association="Self.FK_DeThi_BaiThi">
+            <End Role="DeThi" EntitySet="DeThi" />
+            <End Role="BaiThi" EntitySet="BaiThi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DonVi_NghiepVu" Association="Self.FK_DonVi_NghiepVu">
+            <End Role="DonVi" EntitySet="DonVi" />
+            <End Role="NghiepVu" EntitySet="NghiepVu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DonVi_TaiKhoan" Association="Self.FK_DonVi_TaiKhoan">
+            <End Role="DonVi" EntitySet="DonVi" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NghiepVu_CauHoi" Association="Self.FK_NghiepVu_CauHoi">
+            <End Role="NghiepVu" EntitySet="NghiepVu" />
+            <End Role="CauHoi" EntitySet="CauHoi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NghiepVu_DeThi" Association="Self.FK_NghiepVu_DeThi">
+            <End Role="NghiepVu" EntitySet="NghiepVu" />
+            <End Role="DeThi" EntitySet="DeThi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoan_BaiThi" Association="Self.FK_TaiKhoan_BaiThi">
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+            <End Role="BaiThi" EntitySet="BaiThi" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CS_AssignmentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DataModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BaiThis" EntityType="CS_AssignmentModel.BaiThi" />
+          <EntitySet Name="CauHois" EntityType="CS_AssignmentModel.CauHoi" />
+          <EntitySet Name="DeThis" EntityType="CS_AssignmentModel.DeThi" />
+          <EntitySet Name="DonVis" EntityType="CS_AssignmentModel.DonVi" />
+          <EntitySet Name="KetQuas" EntityType="CS_AssignmentModel.KetQua" />
+          <EntitySet Name="NghiepVus" EntityType="CS_AssignmentModel.NghiepVu" />
+          <EntitySet Name="TaiKhoans" EntityType="CS_AssignmentModel.TaiKhoan" />
+          <EntitySet Name="vwFullAccountDetails" EntityType="CS_AssignmentModel.vwFullAccountDetail" />
+          <EntitySet Name="vwFullExams" EntityType="CS_AssignmentModel.vwFullExam" />
+          <EntitySet Name="vwFullQuestionDetails" EntityType="CS_AssignmentModel.vwFullQuestionDetail" />
+          <EntitySet Name="vwResults" EntityType="CS_AssignmentModel.vwResult" />
+          <AssociationSet Name="FK_BaiThi_KetQua" Association="CS_AssignmentModel.FK_BaiThi_KetQua">
+            <End Role="BaiThi" EntitySet="BaiThis" />
+            <End Role="KetQua" EntitySet="KetQuas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeThi_BaiThi" Association="CS_AssignmentModel.FK_DeThi_BaiThi">
+            <End Role="DeThi" EntitySet="DeThis" />
+            <End Role="BaiThi" EntitySet="BaiThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaiKhoan_BaiThi" Association="CS_AssignmentModel.FK_TaiKhoan_BaiThi">
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+            <End Role="BaiThi" EntitySet="BaiThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CauHoi_DeThi1" Association="CS_AssignmentModel.FK_CauHoi_DeThi1">
+            <End Role="CauHoi" EntitySet="CauHois" />
+            <End Role="DeThi" EntitySet="DeThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CauHoi_DeThi2" Association="CS_AssignmentModel.FK_CauHoi_DeThi2">
+            <End Role="CauHoi" EntitySet="CauHois" />
+            <End Role="DeThi" EntitySet="DeThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CauHoi_DeThi3" Association="CS_AssignmentModel.FK_CauHoi_DeThi3">
+            <End Role="CauHoi" EntitySet="CauHois" />
+            <End Role="DeThi" EntitySet="DeThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NghiepVu_CauHoi" Association="CS_AssignmentModel.FK_NghiepVu_CauHoi">
+            <End Role="NghiepVu" EntitySet="NghiepVus" />
+            <End Role="CauHoi" EntitySet="CauHois" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NghiepVu_DeThi" Association="CS_AssignmentModel.FK_NghiepVu_DeThi">
+            <End Role="NghiepVu" EntitySet="NghiepVus" />
+            <End Role="DeThi" EntitySet="DeThis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DonVi_NghiepVu" Association="CS_AssignmentModel.FK_DonVi_NghiepVu">
+            <End Role="DonVi" EntitySet="DonVis" />
+            <End Role="NghiepVu" EntitySet="NghiepVus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DonVi_TaiKhoan" Association="CS_AssignmentModel.FK_DonVi_TaiKhoan">
+            <End Role="DonVi" EntitySet="DonVis" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BaiThi">
+          <Key>
+            <PropertyRef Name="MaBaiThi" />
+          </Key>
+          <Property Name="MaBaiThi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaDeThi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TenTaiKhoan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NgayThi" Type="DateTime" Precision="0" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="KetQuas" Relationship="CS_AssignmentModel.FK_BaiThi_KetQua" FromRole="BaiThi" ToRole="KetQua" />
+          <NavigationProperty Name="DeThi" Relationship="CS_AssignmentModel.FK_DeThi_BaiThi" FromRole="BaiThi" ToRole="DeThi" />
+          <NavigationProperty Name="TaiKhoan" Relationship="CS_AssignmentModel.FK_TaiKhoan_BaiThi" FromRole="BaiThi" ToRole="TaiKhoan" />
+        </EntityType>
+        <EntityType Name="CauHoi">
+          <Key>
+            <PropertyRef Name="MaCauHoi" />
+          </Key>
+          <Property Name="MaCauHoi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaNghiepVu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CauHoi1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TraLoi1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TraLoi2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TraLoi3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DapAn" Type="Int32" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="DeThis" Relationship="CS_AssignmentModel.FK_CauHoi_DeThi1" FromRole="CauHoi" ToRole="DeThi" />
+          <NavigationProperty Name="DeThis1" Relationship="CS_AssignmentModel.FK_CauHoi_DeThi2" FromRole="CauHoi" ToRole="DeThi" />
+          <NavigationProperty Name="DeThis2" Relationship="CS_AssignmentModel.FK_CauHoi_DeThi3" FromRole="CauHoi" ToRole="DeThi" />
+          <NavigationProperty Name="NghiepVu" Relationship="CS_AssignmentModel.FK_NghiepVu_CauHoi" FromRole="CauHoi" ToRole="NghiepVu" />
+        </EntityType>
+        <EntityType Name="DeThi">
+          <Key>
+            <PropertyRef Name="MaDeThi" />
+          </Key>
+          <Property Name="MaDeThi" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MaNghiepVu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MaCauHoi1" Type="Int32" />
+          <Property Name="MaCauHoi2" Type="Int32" />
+          <Property Name="MaCauHoi3" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="BaiThis" Relationship="CS_AssignmentModel.FK_DeThi_BaiThi" FromRole="DeThi" ToRole="BaiThi" />
+          <NavigationProperty Name="CauHoi" Relationship="CS_AssignmentModel.FK_CauHoi_DeThi1" FromRole="DeThi" ToRole="CauHoi" />
+          <NavigationProperty Name="CauHoi1" Relationship="CS_AssignmentModel.FK_CauHoi_DeThi2" FromRole="DeThi" ToRole="CauHoi" />
+          <NavigationProperty Name="CauHoi2" Relationship="CS_AssignmentModel.FK_CauHoi_DeThi3" FromRole="DeThi" ToRole="CauHoi" />
+          <NavigationProperty Name="NghiepVu" Relationship="CS_AssignmentModel.FK_NghiepVu_DeThi" FromRole="DeThi" ToRole="NghiepVu" />
+        </EntityType>
+        <EntityType Name="DonVi">
+          <Key>
+            <PropertyRef Name="MaDonVi" />
+          </Key>
+          <Property Name="MaDonVi" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TenPhong" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TenDoi" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="NghiepVus" Relationship="CS_AssignmentModel.FK_DonVi_NghiepVu" FromRole="DonVi" ToRole="NghiepVu" />
+          <NavigationProperty Name="TaiKhoans" Relationship="CS_AssignmentModel.FK_DonVi_TaiKhoan" FromRole="DonVi" ToRole="TaiKhoan" />
+        </EntityType>
+        <EntityType Name="KetQua">
+          <Key>
+            <PropertyRef Name="MaKetQua" />
+          </Key>
+          <Property Name="MaKetQua" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaBaiThi" Type="Int32" />
+          <Property Name="DiemSo" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="BaiThi" Relationship="CS_AssignmentModel.FK_BaiThi_KetQua" FromRole="KetQua" ToRole="BaiThi" />
+        </EntityType>
+        <EntityType Name="NghiepVu">
+          <Key>
+            <PropertyRef Name="MaNghiepVu" />
+          </Key>
+          <Property Name="MaNghiepVu" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MaDonVi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TenNghiepVu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="CauHois" Relationship="CS_AssignmentModel.FK_NghiepVu_CauHoi" FromRole="NghiepVu" ToRole="CauHoi" />
+          <NavigationProperty Name="DeThis" Relationship="CS_AssignmentModel.FK_NghiepVu_DeThi" FromRole="NghiepVu" ToRole="DeThi" />
+          <NavigationProperty Name="DonVi" Relationship="CS_AssignmentModel.FK_DonVi_NghiepVu" FromRole="NghiepVu" ToRole="DonVi" />
+        </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="TenTaiKhoan" />
+          </Key>
+          <Property Name="TenTaiKhoan" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MatKhau" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HoTen" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="MaDonVi" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="BaiThis" Relationship="CS_AssignmentModel.FK_TaiKhoan_BaiThi" FromRole="TaiKhoan" ToRole="BaiThi" />
+          <NavigationProperty Name="DonVi" Relationship="CS_AssignmentModel.FK_DonVi_TaiKhoan" FromRole="TaiKhoan" ToRole="DonVi" />
+        </EntityType>
+        <EntityType Name="vwFullAccountDetail">
+          <Key>
+            <PropertyRef Name="TenTaiKhoan" />
+          </Key>
+          <Property Name="TenTaiKhoan" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HoTen" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="TenPhong" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TenDoi" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vwFullExam">
+          <Key>
+            <PropertyRef Name="MaDeThi" />
+          </Key>
+          <Property Name="MaDeThi" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MaNghiepVu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TenNghiepVu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MaDonVi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MaCauHoi1" Type="Int32" />
+          <Property Name="MaCauHoi2" Type="Int32" />
+          <Property Name="MaCauHoi3" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vwFullQuestionDetail">
+          <Key>
+            <PropertyRef Name="MaCauHoi" />
+            <PropertyRef Name="DapAn" />
+          </Key>
+          <Property Name="MaCauHoi" Type="Int32" Nullable="false" />
+          <Property Name="MaNghiepVu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TenPhong" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TenDoi" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TenNghiepVu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CauHoi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TraLoi1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TraLoi2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TraLoi3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DapAn" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwResult">
+          <Key>
+            <PropertyRef Name="TenTaiKhoan" />
+          </Key>
+          <Property Name="TenTaiKhoan" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HoTen" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="TenPhong" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TenDoi" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TenNghiepVu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NgayThi" Type="DateTime" Precision="0" />
+          <Property Name="DiemSo" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_BaiThi_KetQua">
+          <End Type="CS_AssignmentModel.BaiThi" Role="BaiThi" Multiplicity="0..1" />
+          <End Type="CS_AssignmentModel.KetQua" Role="KetQua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BaiThi">
+              <PropertyRef Name="MaBaiThi" />
+            </Principal>
+            <Dependent Role="KetQua">
+              <PropertyRef Name="MaBaiThi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeThi_BaiThi">
+          <End Type="CS_AssignmentModel.DeThi" Role="DeThi" Multiplicity="0..1" />
+          <End Type="CS_AssignmentModel.BaiThi" Role="BaiThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeThi">
+              <PropertyRef Name="MaDeThi" />
+            </Principal>
+            <Dependent Role="BaiThi">
+              <PropertyRef Name="MaDeThi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaiKhoan_BaiThi">
+          <End Type="CS_AssignmentModel.TaiKhoan" Role="TaiKhoan" Multiplicity="0..1" />
+          <End Type="CS_AssignmentModel.BaiThi" Role="BaiThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaiKhoan">
+              <PropertyRef Name="TenTaiKhoan" />
+            </Principal>
+            <Dependent Role="BaiThi">
+              <PropertyRef Name="TenTaiKhoan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CauHoi_DeThi1">
+          <End Type="CS_AssignmentModel.CauHoi" Role="CauHoi" Multiplicity="0..1" />
+          <End Type="CS_AssignmentModel.DeThi" Role="DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CauHoi">
+              <PropertyRef Name="MaCauHoi" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaCauHoi1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CauHoi_DeThi2">
+          <End Type="CS_AssignmentModel.CauHoi" Role="CauHoi" Multiplicity="0..1" />
+          <End Type="CS_AssignmentModel.DeThi" Role="DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CauHoi">
+              <PropertyRef Name="MaCauHoi" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaCauHoi2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CauHoi_DeThi3">
+          <End Type="CS_AssignmentModel.CauHoi" Role="CauHoi" Multiplicity="0..1" />
+          <End Type="CS_AssignmentModel.DeThi" Role="DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CauHoi">
+              <PropertyRef Name="MaCauHoi" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaCauHoi3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NghiepVu_CauHoi">
+          <End Type="CS_AssignmentModel.NghiepVu" Role="NghiepVu" Multiplicity="0..1" />
+          <End Type="CS_AssignmentModel.CauHoi" Role="CauHoi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NghiepVu">
+              <PropertyRef Name="MaNghiepVu" />
+            </Principal>
+            <Dependent Role="CauHoi">
+              <PropertyRef Name="MaNghiepVu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NghiepVu_DeThi">
+          <End Type="CS_AssignmentModel.NghiepVu" Role="NghiepVu" Multiplicity="0..1" />
+          <End Type="CS_AssignmentModel.DeThi" Role="DeThi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NghiepVu">
+              <PropertyRef Name="MaNghiepVu" />
+            </Principal>
+            <Dependent Role="DeThi">
+              <PropertyRef Name="MaNghiepVu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DonVi_NghiepVu">
+          <End Type="CS_AssignmentModel.DonVi" Role="DonVi" Multiplicity="0..1" />
+          <End Type="CS_AssignmentModel.NghiepVu" Role="NghiepVu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DonVi">
+              <PropertyRef Name="MaDonVi" />
+            </Principal>
+            <Dependent Role="NghiepVu">
+              <PropertyRef Name="MaDonVi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DonVi_TaiKhoan">
+          <End Type="CS_AssignmentModel.DonVi" Role="DonVi" Multiplicity="1" />
+          <End Type="CS_AssignmentModel.TaiKhoan" Role="TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DonVi">
+              <PropertyRef Name="MaDonVi" />
+            </Principal>
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="MaDonVi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CS_AssignmentModelStoreContainer" CdmEntityContainer="DataModel">
+          <EntitySetMapping Name="BaiThis">
+            <EntityTypeMapping TypeName="CS_AssignmentModel.BaiThi">
+              <MappingFragment StoreEntitySet="BaiThi">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="NgayThi" ColumnName="NgayThi" />
+                <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
+                <ScalarProperty Name="MaDeThi" ColumnName="MaDeThi" />
+                <ScalarProperty Name="MaBaiThi" ColumnName="MaBaiThi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CauHois">
+            <EntityTypeMapping TypeName="CS_AssignmentModel.CauHoi">
+              <MappingFragment StoreEntitySet="CauHoi">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DapAn" ColumnName="DapAn" />
+                <ScalarProperty Name="TraLoi3" ColumnName="TraLoi3" />
+                <ScalarProperty Name="TraLoi2" ColumnName="TraLoi2" />
+                <ScalarProperty Name="TraLoi1" ColumnName="TraLoi1" />
+                <ScalarProperty Name="CauHoi1" ColumnName="CauHoi" />
+                <ScalarProperty Name="MaNghiepVu" ColumnName="MaNghiepVu" />
+                <ScalarProperty Name="MaCauHoi" ColumnName="MaCauHoi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeThis">
+            <EntityTypeMapping TypeName="CS_AssignmentModel.DeThi">
+              <MappingFragment StoreEntitySet="DeThi">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="MaCauHoi3" ColumnName="MaCauHoi3" />
+                <ScalarProperty Name="MaCauHoi2" ColumnName="MaCauHoi2" />
+                <ScalarProperty Name="MaCauHoi1" ColumnName="MaCauHoi1" />
+                <ScalarProperty Name="MaNghiepVu" ColumnName="MaNghiepVu" />
+                <ScalarProperty Name="MaDeThi" ColumnName="MaDeThi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DonVis">
+            <EntityTypeMapping TypeName="CS_AssignmentModel.DonVi">
+              <MappingFragment StoreEntitySet="DonVi">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="TenDoi" ColumnName="TenDoi" />
+                <ScalarProperty Name="TenPhong" ColumnName="TenPhong" />
+                <ScalarProperty Name="MaDonVi" ColumnName="MaDonVi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KetQuas">
+            <EntityTypeMapping TypeName="CS_AssignmentModel.KetQua">
+              <MappingFragment StoreEntitySet="KetQua">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DiemSo" ColumnName="DiemSo" />
+                <ScalarProperty Name="MaBaiThi" ColumnName="MaBaiThi" />
+                <ScalarProperty Name="MaKetQua" ColumnName="MaKetQua" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NghiepVus">
+            <EntityTypeMapping TypeName="CS_AssignmentModel.NghiepVu">
+              <MappingFragment StoreEntitySet="NghiepVu">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="TenNghiepVu" ColumnName="TenNghiepVu" />
+                <ScalarProperty Name="MaDonVi" ColumnName="MaDonVi" />
+                <ScalarProperty Name="MaNghiepVu" ColumnName="MaNghiepVu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaiKhoans">
+            <EntityTypeMapping TypeName="CS_AssignmentModel.TaiKhoan">
+              <MappingFragment StoreEntitySet="TaiKhoan">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MaDonVi" ColumnName="MaDonVi" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFullAccountDetails">
+            <EntityTypeMapping TypeName="CS_AssignmentModel.vwFullAccountDetail">
+              <MappingFragment StoreEntitySet="vwFullAccountDetails">
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TenDoi" ColumnName="TenDoi" />
+                <ScalarProperty Name="TenPhong" ColumnName="TenPhong" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFullExams">
+            <EntityTypeMapping TypeName="CS_AssignmentModel.vwFullExam">
+              <MappingFragment StoreEntitySet="vwFullExam">
+                <ScalarProperty Name="MaCauHoi3" ColumnName="MaCauHoi3" />
+                <ScalarProperty Name="MaCauHoi2" ColumnName="MaCauHoi2" />
+                <ScalarProperty Name="MaCauHoi1" ColumnName="MaCauHoi1" />
+                <ScalarProperty Name="MaDonVi" ColumnName="MaDonVi" />
+                <ScalarProperty Name="TenNghiepVu" ColumnName="TenNghiepVu" />
+                <ScalarProperty Name="MaNghiepVu" ColumnName="MaNghiepVu" />
+                <ScalarProperty Name="MaDeThi" ColumnName="MaDeThi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwFullQuestionDetails">
+            <EntityTypeMapping TypeName="CS_AssignmentModel.vwFullQuestionDetail">
+              <MappingFragment StoreEntitySet="vwFullQuestionDetails">
+                <ScalarProperty Name="DapAn" ColumnName="DapAn" />
+                <ScalarProperty Name="TraLoi3" ColumnName="TraLoi3" />
+                <ScalarProperty Name="TraLoi2" ColumnName="TraLoi2" />
+                <ScalarProperty Name="TraLoi1" ColumnName="TraLoi1" />
+                <ScalarProperty Name="CauHoi" ColumnName="CauHoi" />
+                <ScalarProperty Name="TenNghiepVu" ColumnName="TenNghiepVu" />
+                <ScalarProperty Name="TenDoi" ColumnName="TenDoi" />
+                <ScalarProperty Name="TenPhong" ColumnName="TenPhong" />
+                <ScalarProperty Name="MaNghiepVu" ColumnName="MaNghiepVu" />
+                <ScalarProperty Name="MaCauHoi" ColumnName="MaCauHoi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwResults">
+            <EntityTypeMapping TypeName="CS_AssignmentModel.vwResult">
+              <MappingFragment StoreEntitySet="vwResult">
+                <ScalarProperty Name="DiemSo" ColumnName="DiemSo" />
+                <ScalarProperty Name="NgayThi" ColumnName="NgayThi" />
+                <ScalarProperty Name="TenNghiepVu" ColumnName="TenNghiepVu" />
+                <ScalarProperty Name="TenDoi" ColumnName="TenDoi" />
+                <ScalarProperty Name="TenPhong" ColumnName="TenPhong" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
