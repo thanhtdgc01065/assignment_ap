@@ -43,6 +43,8 @@
             this.beginTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.testResultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.departmentTeamManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,9 +93,11 @@
             // 
             this.managementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.accountManagerToolStripMenuItem1,
+            this.departmentTeamManagerToolStripMenuItem,
+            this.skillManagerToolStripMenuItem,
+            this.toolStripSeparator3,
             this.examManagerToolStripMenuItem,
-            this.questionManagerToolStripMenuItem1,
-            this.skillManagerToolStripMenuItem});
+            this.questionManagerToolStripMenuItem1});
             this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
             this.managementToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.managementToolStripMenuItem.Text = "Management";
@@ -101,28 +105,28 @@
             // accountManagerToolStripMenuItem1
             // 
             this.accountManagerToolStripMenuItem1.Name = "accountManagerToolStripMenuItem1";
-            this.accountManagerToolStripMenuItem1.Size = new System.Drawing.Size(172, 22);
+            this.accountManagerToolStripMenuItem1.Size = new System.Drawing.Size(242, 22);
             this.accountManagerToolStripMenuItem1.Text = "Account Manager";
             this.accountManagerToolStripMenuItem1.Click += new System.EventHandler(this.accountManagerToolStripMenuItem1_Click);
             // 
             // examManagerToolStripMenuItem
             // 
             this.examManagerToolStripMenuItem.Name = "examManagerToolStripMenuItem";
-            this.examManagerToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.examManagerToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.examManagerToolStripMenuItem.Text = "Exam Manager";
             this.examManagerToolStripMenuItem.Click += new System.EventHandler(this.examManagerToolStripMenuItem_Click);
             // 
             // questionManagerToolStripMenuItem1
             // 
             this.questionManagerToolStripMenuItem1.Name = "questionManagerToolStripMenuItem1";
-            this.questionManagerToolStripMenuItem1.Size = new System.Drawing.Size(172, 22);
+            this.questionManagerToolStripMenuItem1.Size = new System.Drawing.Size(242, 22);
             this.questionManagerToolStripMenuItem1.Text = "Question Manager";
             this.questionManagerToolStripMenuItem1.Click += new System.EventHandler(this.questionManagerToolStripMenuItem1_Click);
             // 
             // skillManagerToolStripMenuItem
             // 
             this.skillManagerToolStripMenuItem.Name = "skillManagerToolStripMenuItem";
-            this.skillManagerToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.skillManagerToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.skillManagerToolStripMenuItem.Text = "Skill Manager";
             this.skillManagerToolStripMenuItem.Click += new System.EventHandler(this.skillManagerToolStripMenuItem_Click);
             // 
@@ -139,21 +143,33 @@
             // beginTestToolStripMenuItem
             // 
             this.beginTestToolStripMenuItem.Name = "beginTestToolStripMenuItem";
-            this.beginTestToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.beginTestToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.beginTestToolStripMenuItem.Text = "Begin Test";
             this.beginTestToolStripMenuItem.Click += new System.EventHandler(this.beginTestToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(127, 6);
             // 
             // testResultToolStripMenuItem
             // 
             this.testResultToolStripMenuItem.Name = "testResultToolStripMenuItem";
-            this.testResultToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.testResultToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.testResultToolStripMenuItem.Text = "Test Result";
             this.testResultToolStripMenuItem.Click += new System.EventHandler(this.testResultToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(239, 6);
+            // 
+            // departmentTeamManagerToolStripMenuItem
+            // 
+            this.departmentTeamManagerToolStripMenuItem.Name = "departmentTeamManagerToolStripMenuItem";
+            this.departmentTeamManagerToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.departmentTeamManagerToolStripMenuItem.Text = "Department and Team Manager";
+            this.departmentTeamManagerToolStripMenuItem.Click += new System.EventHandler(this.departmentTeamManagerToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -190,5 +206,7 @@
         private System.Windows.Forms.ToolStripMenuItem skillManagerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testResultToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem departmentTeamManagerToolStripMenuItem;
     }
 }

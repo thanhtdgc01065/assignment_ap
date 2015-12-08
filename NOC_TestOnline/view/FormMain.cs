@@ -20,6 +20,7 @@ namespace NOC_TestOnline.view
         private FormLogin login = null;
         private FormSkillManager skillManager = null;
         private FormResult result = null;
+        private FormDeptTeamManager deptManager = null;
 
         public FormMain()
         {
@@ -107,6 +108,16 @@ namespace NOC_TestOnline.view
                 result.MdiParent = this;
             }
             result.Show();
+        }
+
+        private void departmentTeamManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (deptManager == null)
+            {
+                deptManager = new FormDeptTeamManager();
+                deptManager.MdiParent = this;
+            }
+            deptManager.Show();
         }
     }
 }

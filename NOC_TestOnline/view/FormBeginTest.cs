@@ -29,6 +29,7 @@ namespace NOC_TestOnline.view
             this.radioButton1.Tag = 1;
             this.radioButton2.Tag = 2;
             this.radioButton3.Tag = 3;
+            this.MinimumSize = new Size(984, 572);
 
             this.MaximizeBox = false;
 
@@ -191,20 +192,27 @@ namespace NOC_TestOnline.view
 
         private void SaveResult()
         {
-            baiThi = new BaiThi();
-            baiThi.MaDeThi = deThi.MaDeThi;
-            baiThi.NgayThi = DateTime.Now;
-            baiThi.TenTaiKhoan = Program.currentUser.TenTaiKhoan;
-            baiThi.IsDeleted = false;
-            Program.data.BaiThis.Add(baiThi);
+            try
+            {
+                baiThi = new BaiThi();
+                baiThi.MaDeThi = deThi.MaDeThi;
+                baiThi.NgayThi = DateTime.Now;
+                baiThi.TenTaiKhoan = Program.currentUser.TenTaiKhoan;
+                baiThi.IsDeleted = false;
+                Program.data.BaiThis.Add(baiThi);
 
-            ketQua = new KetQua();
-            ketQua.MaBaiThi = baiThi.MaBaiThi;
-            ketQua.DiemSo = diemSo;
-            ketQua.IsDeleted = false;
-            Program.data.KetQuas.Add(ketQua);
+                ketQua = new KetQua();
+                ketQua.MaBaiThi = baiThi.MaBaiThi;
+                ketQua.DiemSo = diemSo;
+                ketQua.IsDeleted = false;
+                Program.data.KetQuas.Add(ketQua);
 
-            Program.data.SaveChanges();
+                Program.data.SaveChanges();
+            }
+            catch
+            {
+                MessageBox.Show("Save test result to Db failed. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

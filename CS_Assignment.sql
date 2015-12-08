@@ -165,7 +165,7 @@ GO
 */
 
 SELECT * FROM [DeThi]
-SELECT * FROM [DonVi]
+SELECT * FROM [DonVi] ORDER BY(TenDoi)
 
 IF EXISTS(SELECT * FROM sys.views WHERE name='vwFullQuestionDetails')
 DROP VIEW vwFullQuestionDetails

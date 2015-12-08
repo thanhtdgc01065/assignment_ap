@@ -1,1 +1,2 @@
-- 07Nov2015: First commit to Git (by Thanh Tran)
+- 07Dec2015: First commit to Git (by Thanh Tran)
+- 08Dec2015: Add Department & Team Manager

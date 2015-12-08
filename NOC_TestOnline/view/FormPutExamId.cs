@@ -18,6 +18,7 @@ namespace NOC_TestOnline.view
         public FormPutExamId()
         {
             InitializeComponent();
+            this.MinimumSize = new Size(289, 86);
 
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;

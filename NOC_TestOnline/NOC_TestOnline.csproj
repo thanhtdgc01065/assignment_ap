@@ -124,6 +124,12 @@
     <Compile Include="view\FormBeginTest.Designer.cs">
       <DependentUpon>FormBeginTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\FormDeptTeamManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormDeptTeamManager.Designer.cs">
+      <DependentUpon>FormDeptTeamManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\FormExamManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,9 @@
     </Compile>
     <EmbeddedResource Include="view\FormBeginTest.resx">
       <DependentUpon>FormBeginTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormDeptTeamManager.resx">
+      <DependentUpon>FormDeptTeamManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\FormExamManager.resx">
       <DependentUpon>FormExamManager.cs</DependentUpon>
