@@ -12,10 +12,10 @@
         <EntityTypeShape EntityType="CS_AssignmentModel.KetQua" Width="1.5" PointX="12" PointY="3.75" />
         <EntityTypeShape EntityType="CS_AssignmentModel.NghiepVu" Width="1.5" PointX="3" PointY="1.625" />
         <EntityTypeShape EntityType="CS_AssignmentModel.TaiKhoan" Width="1.5" PointX="3" PointY="5.25" />
-        <EntityTypeShape EntityType="CS_AssignmentModel.vwFullAccountDetail" Width="1.5" PointX="0.5" PointY="8.625" />
-        <EntityTypeShape EntityType="CS_AssignmentModel.vwFullExam" Width="1.5" PointX="4.5" PointY="8.625" />
-        <EntityTypeShape EntityType="CS_AssignmentModel.vwFullQuestionDetail" Width="1.5" PointX="2.5" PointY="8.625" />
-        <EntityTypeShape EntityType="CS_AssignmentModel.vwResult" Width="1.5" PointX="6.5" PointY="8.625" />
+        <EntityTypeShape EntityType="CS_AssignmentModel.vwFullAccountDetail" Width="1.5" PointX="5.75" PointY="5.75" />
+        <EntityTypeShape EntityType="CS_AssignmentModel.vwFullExam" Width="1.5" PointX="7.75" PointY="7.75" />
+        <EntityTypeShape EntityType="CS_AssignmentModel.vwFullQuestionDetail" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="CS_AssignmentModel.vwResult" Width="1.5" PointX="2.75" PointY="9.75" />
         <AssociationConnector Association="CS_AssignmentModel.FK_BaiThi_KetQua" />
         <AssociationConnector Association="CS_AssignmentModel.FK_DeThi_BaiThi" />
         <AssociationConnector Association="CS_AssignmentModel.FK_TaiKhoan_BaiThi" />

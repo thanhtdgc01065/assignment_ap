@@ -201,6 +201,7 @@ INNER JOIN [NghiepVu] AS NV ON DT.MaNghiepVu=NV.MaNghiepVu
 WHERE DT.IsDeleted=0
 GO
 
+/*
 IF EXISTS(SELECT * FROM sys.views WHERE name='vwResult')
 DROP VIEW vwResult
 GO
@@ -214,8 +215,26 @@ INNER JOIN [BaiThi] AS BT ON TK.TenTaiKhoan=BT.TenTaiKhoan
 INNER JOIN [KetQua] AS KQ ON BT.MaBaiThi=KQ.MaBaiThi
 WHERE TK.IsDeleted=0
 GO
+*/
+
+IF EXISTS (SELECT * FROM sys.views WHERE name='vwResult')
+DROP VIEW vwResult
+GO
+CREATE VIEW vwResult
+AS
+SELECT TK.TenTaiKhoan,TK.HoTen,DV.TenPhong,DV.TenDoi,NV.TenNghiepVu,BT.NgayThi,KQ.DiemSo
+FROM TaiKhoan AS TK
+INNER JOIN BaiThi AS BT ON Tk.TenTaiKhoan=BT.TenTaiKhoan
+INNER JOIN KetQua AS KQ ON BT.MaBaiThi=KQ.MaBaiThi
+INNER JOIN DeThi AS DT ON BT.MaDeThi=DT.MaDeThi
+INNER JOIN NghiepVu AS NV ON DT.MaNghiepVu=NV.MaNghiepVu
+INNER JOIN DonVi AS DV ON NV.MaDonVi=DV.MaDonVi
+WHERE TK.IsDeleted=0
+GO
 
 SELECT * FROM vwFullQuestionDetails
 SELECT * FROM vwFullAccountDetails
 SELECT * FROM vwFullExam
 SELECT * FROM vwResult
+
+EXECUTE sp_refreshview N'vwResult'
